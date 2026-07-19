@@ -11,11 +11,17 @@ function signToken(id: string, role: string): string {
   } as jwt.SignOptions);
 }
 
+const isProduction = process.env.NODE_ENV === "production";
+
+const cookieOptions = {
+  httpOnly: true,
+  sameSite: (isProduction ? "none" : "lax") as "none" | "lax",
+  secure: isProduction,
+};
+
 function setAuthCookie(res: Response, token: string): void {
   res.cookie(COOKIE_NAME, token, {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    ...cookieOptions,
     maxAge: 24 * 60 * 60 * 1000,
   });
 }
@@ -49,7 +55,7 @@ export const login = asyncHandler(async (req: Request, res: Response) => {
 });
 
 export const logout = asyncHandler(async (_req: Request, res: Response) => {
-  res.clearCookie(COOKIE_NAME);
+  res.clearCookie(COOKIE_NAME, cookieOptions);
   res.json({ message: "Logged out" });
 });
 
