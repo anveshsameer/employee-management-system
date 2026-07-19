@@ -40,7 +40,7 @@ npm run dev    # starts the API on http://localhost:5000
 
 The seed script creates one Super Admin using the credentials in `.env`
 (`SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD`, defaults to
-`admin@ems.local` / `Admin@12345`). There is no public self-registration by
+`raghupathi@ems.local` / `Password123`). There is no public self-registration by
 design — the Super Admin creates all other accounts (HR Managers and Employees)
 from the Employees screen.
 
@@ -54,6 +54,28 @@ npm run dev             # starts the app on http://localhost:5173
 ```
 
 Open http://localhost:5173 and log in with the seeded Super Admin credentials.
+
+## Demo Data
+
+The database is pre-populated with a small sample org so the RBAC and hierarchy
+features are visible right away. All accounts use the password `Password123`.
+
+| Name | Role | Department | Designation | Reports to |
+|---|---|---|---|---|
+| Raghupathi | Super Admin | HR | Super Administrator | — |
+| Rajan | HR Manager | HR | HR Manager | Raghupathi |
+| Nedumaran | Employee | Engineering | Engineering Lead | Raghupathi |
+| Chidambaram | Employee | Sales | Sales Lead | Raghupathi |
+| Vetri | Employee | Engineering | Software Engineer | Nedumaran |
+| Pandi | Employee | Engineering | Software Engineer | Nedumaran |
+| Uthaman | Employee | Engineering | QA Engineer | Nedumaran |
+| Riya | Employee | Sales | Sales Executive | Chidambaram |
+| Aishwarya | Employee | Marketing | Marketing Executive | Rajan |
+| Veni | Employee | Finance | Finance Analyst | Rajan |
+| Akka | Employee | Support | Support Specialist | Rajan |
+| Priya | Employee | HR | HR Executive | Rajan |
+
+Emails follow `firstname@ems.local` (e.g. `vetri@ems.local`).
 
 ## Roles & Permissions
 
@@ -99,6 +121,10 @@ with a 403.
 | Add Employee | HR Manager view (no Delete) | Employee self-service |
 |---|---|---|
 | ![Add Employee](docs/screenshots/add-employee-form.png) | ![HR view](docs/screenshots/hr-manager-view-no-delete.png) | ![My Profile](docs/screenshots/employee-my-profile.png) |
+
+| Manager profile with direct reports | Delete confirmation |
+|---|---|
+| ![Reportees](docs/screenshots/employee-profile-reportees.png) | ![Delete confirm](docs/screenshots/delete-confirm-dialog.png) |
 
 ## API Documentation
 

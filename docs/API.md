@@ -21,11 +21,11 @@ Error responses use the shape:
 ### `POST /auth/login`
 Body:
 ```json
-{ "email": "admin@ems.local", "password": "Admin@12345" }
+{ "email": "raghupathi@ems.local", "password": "Password123" }
 ```
 Response `200`:
 ```json
-{ "id": "...", "employeeId": "EMP0001", "name": "Super Admin", "email": "admin@ems.local", "role": "super_admin" }
+{ "id": "...", "employeeId": "EMP0001", "name": "Raghupathi", "email": "raghupathi@ems.local", "role": "super_admin" }
 ```
 Sets the `ems_token` cookie. Rate-limited to 20 attempts / 15 minutes per IP.
 
