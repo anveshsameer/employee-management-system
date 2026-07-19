@@ -2,12 +2,10 @@ export const ROLES = ["super_admin", "hr_manager", "employee"] as const;
 export type Role = (typeof ROLES)[number];
 
 export const DEPARTMENTS = [
-  "Engineering",
-  "Sales",
-  "Marketing",
-  "HR",
-  "Finance",
-  "Support",
+  "Kitchen",
+  "Room Service",
+  "Housekeeping",
+  "Administration",
 ] as const;
 export type Department = (typeof DEPARTMENTS)[number];
 

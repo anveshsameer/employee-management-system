@@ -45,13 +45,13 @@ Query params (all optional):
 | Param | Values |
 |---|---|
 | `search` | matches name or email, case-insensitive |
-| `department` | `Engineering \| Sales \| Marketing \| HR \| Finance \| Support` |
+| `department` | `Kitchen \| Room Service \| Housekeeping \| Administration` |
 | `role` | `super_admin \| hr_manager \| employee` |
 | `status` | `active \| inactive` |
 | `sortBy` | `name \| joiningDate` (default `name`) |
 | `sortOrder` | `asc \| desc` (default `asc`) |
 
-Example: `GET /employees?search=jane&department=Engineering&sortBy=joiningDate&sortOrder=desc`
+Example: `GET /employees?search=jane&department=Kitchen&sortBy=joiningDate&sortOrder=desc`
 
 ### `GET /employees/:id`
 Employees may only fetch their own record; Super Admin/HR Manager may fetch any.
@@ -66,8 +66,8 @@ Body:
   "name": "Jane Doe",
   "email": "jane@company.com",
   "phone": "9876543210",
-  "department": "Engineering",
-  "designation": "Software Engineer",
+  "department": "Kitchen",
+  "designation": "Chef",
   "salary": 85000,
   "joiningDate": "2026-01-15",
   "status": "active",
@@ -110,9 +110,9 @@ Returns the full hierarchy as a forest of nodes (employees with no manager are r
   {
     "id": "...",
     "employeeId": "EMP0001",
-    "name": "Super Admin",
-    "designation": "Super Administrator",
-    "department": "HR",
+    "name": "Raghupathi",
+    "designation": "General Manager",
+    "department": "Administration",
     "reports": [ /* nested nodes, same shape */ ]
   }
 ]
@@ -129,6 +129,6 @@ Returns the full hierarchy as a forest of nodes (employees with no manager are r
   "activeEmployees": 10,
   "inactiveEmployees": 2,
   "departmentCount": 4,
-  "departments": [{ "department": "Engineering", "count": 5 }]
+  "departments": [{ "department": "Kitchen", "count": 4 }]
 }
 ```

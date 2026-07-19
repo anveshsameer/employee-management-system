@@ -8,21 +8,13 @@ export const ROLE_LABELS: Record<Role, string> = {
   employee: "Employee",
 };
 
-export type Department =
-  | "Engineering"
-  | "Sales"
-  | "Marketing"
-  | "HR"
-  | "Finance"
-  | "Support";
+export type Department = "Kitchen" | "Room Service" | "Housekeeping" | "Administration";
 
 export const DEPARTMENTS: Department[] = [
-  "Engineering",
-  "Sales",
-  "Marketing",
-  "HR",
-  "Finance",
-  "Support",
+  "Kitchen",
+  "Room Service",
+  "Housekeeping",
+  "Administration",
 ];
 
 export type Status = "active" | "inactive";

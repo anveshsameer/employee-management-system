@@ -57,25 +57,28 @@ Open http://localhost:5173 and log in with the seeded Super Admin credentials.
 
 ## Demo Data
 
-The database is pre-populated with a small sample org so the RBAC and hierarchy
+The database is pre-populated with a small hotel-staff org so the RBAC and hierarchy
 features are visible right away. All accounts use the password `Password123`.
+Departments are `Kitchen`, `Room Service`, `Housekeeping`, and `Administration`.
 
 | Name | Role | Department | Designation | Reports to |
 |---|---|---|---|---|
-| Raghupathi | Super Admin | HR | Super Administrator | — |
-| Rajan | HR Manager | HR | HR Manager | Raghupathi |
-| Nedumaran | Employee | Engineering | Engineering Lead | Raghupathi |
-| Chidambaram | Employee | Sales | Sales Lead | Raghupathi |
-| Vetri | Employee | Engineering | Software Engineer | Nedumaran |
-| Pandi | Employee | Engineering | Software Engineer | Nedumaran |
-| Uthaman | Employee | Engineering | QA Engineer | Nedumaran |
-| Riya | Employee | Sales | Sales Executive | Chidambaram |
-| Aishwarya | Employee | Marketing | Marketing Executive | Rajan |
-| Veni | Employee | Finance | Finance Analyst | Rajan |
-| Akka | Employee | Support | Support Specialist | Rajan |
-| Priya | Employee | HR | HR Executive | Rajan |
+| Raghupathi | Super Admin | Administration | General Manager | — |
+| Riya | Super Admin | Administration | Deputy General Manager | — |
+| Rajan | HR Manager | Administration | HR Manager | Raghupathi |
+| Nedumaran | Employee | Kitchen | Head Chef | Rajan |
+| Uthaman | Employee | Room Service | Room Service Supervisor | Rajan |
+| Chidambaram | Employee | Kitchen | Chef | Nedumaran |
+| Aishwarya | Employee | Kitchen | Chef | Nedumaran |
+| Veni | Employee | Kitchen | Chef | Nedumaran |
+| Vetri | Employee | Room Service | Room Service | Uthaman |
+| Pandi | Employee | Room Service | Room Service | Uthaman |
+| Priya | Employee | Room Service | Room Service | Uthaman |
+| Akka | Employee | Housekeeping | Janitor | Rajan |
 
-Emails follow `firstname@ems.local` (e.g. `vetri@ems.local`).
+Emails follow `firstname@ems.local` (e.g. `vetri@ems.local`). Both Raghupathi and Riya
+are Super Admins with no manager; everyone else rolls up through Rajan (HR Manager),
+with Nedumaran leading the kitchen team and Uthaman leading room service.
 
 ## Roles & Permissions
 
